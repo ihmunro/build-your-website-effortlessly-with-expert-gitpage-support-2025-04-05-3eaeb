@@ -1,13 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Enhanced Landing Page</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body>
-    <html lang="en" class="scroll-smooth">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,12 +8,40 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+        .float-animation {
+            animation: float 6s ease-in-out infinite;
+        }
+        .gradient-text {
+            background: linear-gradient(45deg, #8B5CF6, #EC4899);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .glass-effect {
+            background: rgba(17, 24, 39, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
 </head>
 <body class="bg-gray-900 text-gray-100 font-inter antialiased">
-    <header class="fixed w-full z-50 bg-gray-900/95 backdrop-blur-sm border-b border-gray-800">
+    <!-- Floating Action Button -->
+    <a href="#contact" class="fixed bottom-8 right-8 z-50 bg-gradient-to-r from-purple-600 to-pink-600 p-4 rounded-full shadow-lg hover:scale-110 transition-transform duration-300">
+        <i class="fas fa-envelope text-white text-xl"></i>
+    </a>
+
+    <header class="fixed w-full z-50 glass-effect">
         <nav class="container mx-auto px-6 py-4">
             <div class="flex items-center justify-between">
-                <a href="https://ihmunro.github.io/build-your-website-effortlessly-with-expert-gitpage-support-2025-04-05-3eaeb" class="text-2xl font-bold bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent hover:scale-105 transition-transform duration-300">
+                <a href="#" class="text-2xl font-bold gradient-text hover:scale-105 transition-transform duration-300">
                     GitPage
                 </a>
                 <div class="hidden md:flex space-x-8">
@@ -39,49 +59,86 @@
                     Get Started
                 </a>
             </div>
-            <div class="mobile-menu hidden md:hidden mt-4 bg-gray-800 rounded-lg p-4">
-                <a href="#features" class="block py-2 text-gray-300 hover:text-white hover:bg-gray-700 rounded px-4 transition-colors duration-300">Features</a>
-                <a href="#benefits" class="block py-2 text-gray-300 hover:text-white hover:bg-gray-700 rounded px-4 transition-colors duration-300">Benefits</a>
-                <a href="#testimonials" class="block py-2 text-gray-300 hover:text-white hover:bg-gray-700 rounded px-4 transition-colors duration-300">Testimonials</a>
-                <a href="#about" class="block py-2 text-gray-300 hover:text-white hover:bg-gray-700 rounded px-4 transition-colors duration-300">About</a>
-                <a href="#faq" class="block py-2 text-gray-300 hover:text-white hover:bg-gray-700 rounded px-4 transition-colors duration-300">FAQ</a>
-                <a href="#contact" class="block py-2 text-gray-300 hover:text-white hover:bg-gray-700 rounded px-4 transition-colors duration-300">Contact</a>
+            <div class="mobile-menu hidden md:hidden mt-4 glass-effect rounded-lg p-4">
+                <a href="#features" class="block py-2 text-gray-300 hover:text-white hover:bg-gray-700/50 rounded px-4 transition-colors duration-300">Features</a>
+                <a href="#benefits" class="block py-2 text-gray-300 hover:text-white hover:bg-gray-700/50 rounded px-4 transition-colors duration-300">Benefits</a>
+                <a href="#testimonials" class="block py-2 text-gray-300 hover:text-white hover:bg-gray-700/50 rounded px-4 transition-colors duration-300">Testimonials</a>
+                <a href="#about" class="block py-2 text-gray-300 hover:text-white hover:bg-gray-700/50 rounded px-4 transition-colors duration-300">About</a>
+                <a href="#faq" class="block py-2 text-gray-300 hover:text-white hover:bg-gray-700/50 rounded px-4 transition-colors duration-300">FAQ</a>
+                <a href="#contact" class="block py-2 text-gray-300 hover:text-white hover:bg-gray-700/50 rounded px-4 transition-colors duration-300">Contact</a>
                 <a href="https://gitpage.aibizbots4u.com" class="block mt-4 px-6 py-2 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full text-white font-semibold text-center hover:scale-105 transition-transform duration-300">Get Started</a>
             </div>
         </nav>
     </header>
 
     <main>
+        <!-- Hero Section -->
         <section class="relative min-h-screen flex items-center pt-24 overflow-hidden">
             <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80')] bg-cover bg-center opacity-10"></div>
             <div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 to-pink-900/20"></div>
             <div class="container mx-auto px-6 relative z-10">
-                <div class="max-w-4xl mx-auto text-center">
-                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-8 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                <div class="max-w-4xl mx-auto text-center" data-aos="fade-up" data-aos-duration="1000">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-8 gradient-text">
                         Build Your Website Effortlessly with Expert GitPage Support
                     </h1>
                     <p class="text-xl md:text-2xl text-gray-300 mb-12">
                         Transform your online presence with our professional website development and support services. Get a custom-built website that drives results and stands out from the competition.
                     </p>
-                    <a href="https://gitpage.aibizbots4u.com" class="inline-block px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full text-white font-semibold text-lg hover:scale-105 hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300">
-                        Start Building Today
-                    </a>
+                    <div class="flex flex-col md:flex-row gap-4 justify-center">
+                        <a href="https://gitpage.aibizbots4u.com" class="inline-block px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full text-white font-semibold text-lg hover:scale-105 hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300">
+                            Start Building Today
+                        </a>
+                        <a href="#features" class="inline-block px-8 py-4 border border-purple-500 rounded-full text-white font-semibold text-lg hover:bg-purple-500/10 transition-all duration-300">
+                            Learn More
+                        </a>
+                    </div>
                 </div>
             </div>
             <div class="absolute bottom-0 w-full h-24 bg-gradient-to-t from-gray-900 to-transparent"></div>
         </section>
 
+        <!-- Stats Section -->
+        <section class="py-16 bg-gray-800/50">
+            <div class="container mx-auto px-6">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                    <div class="text-center" data-aos="fade-up" data-aos-delay="100">
+                        <div class="text-4xl font-bold gradient-text mb-2">500+</div>
+                        <div class="text-gray-300">Websites Built</div>
+                    </div>
+                    <div class="text-center" data-aos="fade-up" data-aos-delay="200">
+                        <div class="text-4xl font-bold gradient-text mb-2">98%</div>
+                        <div class="text-gray-300">Client Satisfaction</div>
+                    </div>
+                    <div class="text-center" data-aos="fade-up" data-aos-delay="300">
+                        <div class="text-4xl font-bold gradient-text mb-2">24/7</div>
+                        <div class="text-gray-300">Support Available</div>
+                    </div>
+                    <div class="text-center" data-aos="fade-up" data-aos-delay="400">
+                        <div class="text-4xl font-bold gradient-text mb-2">150%</div>
+                        <div class="text-gray-300">Avg. Conversion Increase</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
         <section id="features" class="py-24 bg-gray-900">
             <div class="container mx-auto px-6">
-                <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 gradient-text" data-aos="fade-up">
                     Comprehensive Solutions for Your Digital Success
                 </h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-                    <div class="p-8 rounded-2xl bg-gray-800/50 backdrop-blur-sm border border-gray-700 hover:border-purple-500/50 hover:scale-105 hover:shadow-xl transition-all duration-300">
+                    <div class="p-8 rounded-2xl glass-effect hover:border-purple-500/50 hover:scale-105 hover:shadow-xl transition-all duration-300" data-aos="fade-right">
+                        <div class="text-purple-400 text-4xl mb-4">
+                            <i class="fas fa-code"></i>
+                        </div>
                         <h3 class="text-2xl font-semibold mb-4">Custom Website Development</h3>
                         <p class="text-gray-300">Experience the power of a professionally crafted website tailored to your unique business needs. Our expert team creates responsive, fast-loading sites that convert visitors into customers.</p>
                     </div>
-                    <div class="p-8 rounded-2xl bg-gray-800/50 backdrop-blur-sm border border-gray-700 hover:border-pink-500/50 hover:scale-105 hover:shadow-xl transition-all duration-300">
+                    <div class="p-8 rounded-2xl glass-effect hover:border-pink-500/50 hover:scale-105 hover:shadow-xl transition-all duration-300" data-aos="fade-left">
+                        <div class="text-pink-400 text-4xl mb-4">
+                            <i class="fas fa-headset"></i>
+                        </div>
                         <h3 class="text-2xl font-semibold mb-4">24/7 Technical Support</h3>
                         <p class="text-gray-300">Rest easy knowing your website is in good hands. Our dedicated support team provides round-the-clock maintenance, security updates, and performance optimization to keep your site running smoothly.</p>
                     </div>
@@ -89,21 +146,31 @@
             </div>
         </section>
 
+        <!-- Benefits Section -->
         <section id="benefits" class="py-24 bg-gradient-to-b from-gray-900 to-gray-800">
             <div class="container mx-auto px-6">
-                <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 gradient-text" data-aos="fade-up">
                     Unlock Your Website's Full Potential
                 </h2>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div class="p-6 rounded-xl bg-gray-800/50 backdrop-blur-sm hover:scale-105 hover:shadow-xl transition-all duration-300">
+                    <div class="p-6 rounded-xl glass-effect hover:scale-105 hover:shadow-xl transition-all duration-300" data-aos="fade-up" data-aos-delay="100">
+                        <div class="text-purple-400 text-3xl mb-4">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
                         <h3 class="text-xl font-semibold mb-4">Boost Conversion Rates</h3>
                         <p class="text-gray-300">Our optimized designs and strategic layouts help increase user engagement by up to 150% and drive more conversions for your business.</p>
                     </div>
-                    <div class="p-6 rounded-xl bg-gray-800/50 backdrop-blur-sm hover:scale-105 hover:shadow-xl transition-all duration-300">
+                    <div class="p-6 rounded-xl glass-effect hover:scale-105 hover:shadow-xl transition-all duration-300" data-aos="fade-up" data-aos-delay="200">
+                        <div class="text-pink-400 text-3xl mb-4">
+                            <i class="fas fa-clock"></i>
+                        </div>
                         <h3 class="text-xl font-semibold mb-4">Save Time and Resources</h3>
                         <p class="text-gray-300">Focus on your core business while we handle the technical details. Our efficient workflow saves you countless hours of website management.</p>
                     </div>
-                    <div class="p-6 rounded-xl bg-gray-800/50 backdrop-blur-sm hover:scale-105 hover:shadow-xl transition-all duration-300">
+                    <div class="p-6 rounded-xl glass-effect hover:scale-105 hover:shadow-xl transition-all duration-300" data-aos="fade-up" data-aos-delay="300">
+                        <div class="text-purple-400 text-3xl mb-4">
+                            <i class="fas fa-rocket"></i>
+                        </div>
                         <h3 class="text-xl font-semibold mb-4">Stay Ahead of Competition</h3>
                         <p class="text-gray-300">Leverage cutting-edge web technologies and best practices to maintain a competitive edge in your industry.</p>
                     </div>
@@ -111,54 +178,50 @@
             </div>
         </section>
 
+        <!-- Testimonials Section -->
         <section id="testimonials" class="py-24 bg-gray-800">
             <div class="container mx-auto px-6">
-                <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 gradient-text" data-aos="fade-up">
                     What Our Clients Say
                 </h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div class="p-6 rounded-xl bg-gray-700/50 backdrop-blur-sm hover:scale-105 transition-all duration-300">
+                    <div class="p-6 rounded-xl glass-effect hover:scale-105 transition-all duration-300" data-aos="fade-right">
                         <div class="flex items-center mb-4">
                             <div class="text-yellow-400">★★★★★</div>
                         </div>
                         <p class="text-gray-300 mb-4">"GitPage transformed our online presence completely. The custom website they built increased our conversion rate by 200% in just three months. Their ongoing support is invaluable."</p>
-                        <p class="font-semibold">Sarah Johnson</p>
-                        <p class="text-sm text-gray-400">CEO, TechStart Solutions</p>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center text-white font-bold mr-4">SJ</div>
+                            <div>
+                                <p class="font-semibold">Sarah Johnson</p>
+                                <p class="text-sm text-gray-400">CEO, TechStart Solutions</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="p-6 rounded-xl bg-gray-700/50 backdrop-blur-sm hover:scale-105 transition-all duration-300">
+                    <div class="p-6 rounded-xl glass-effect hover:scale-105 transition-all duration-300" data-aos="fade-left">
                         <div class="flex items-center mb-4">
                             <div class="text-yellow-400">★★★★★</div>
                         </div>
                         <p class="text-gray-300 mb-4">"The team's expertise in web development is outstanding. They delivered a beautiful, fast-loading website that perfectly represents our brand."</p>
-                        <p class="font-semibold">Michael Chen</p>
-                        <p class="text-sm text-gray-400">Marketing Director, Global Innovations</p>
-                    </div>
-                    <div class="p-6 rounded-xl bg-gray-700/50 backdrop-blur-sm hover:scale-105 transition-all duration-300">
-                        <div class="flex items-center mb-4">
-                            <div class="text-yellow-400">★★★★★</div>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center text-white font-bold mr-4">MC</div>
+                            <div>
+                                <p class="font-semibold">Michael Chen</p>
+                                <p class="text-sm text-gray-400">Marketing Director, Global Innovations</p>
+                            </div>
                         </div>
-                        <p class="text-gray-300 mb-4">"Working with GitPage has been a game-changer. Their 24/7 support and quick response times have saved us countless headaches."</p>
-                        <p class="font-semibold">Emma Davis</p>
-                        <p class="text-sm text-gray-400">Owner, Creative Solutions Agency</p>
-                    </div>
-                    <div class="p-6 rounded-xl bg-gray-700/50 backdrop-blur-sm hover:scale-105 transition-all duration-300">
-                        <div class="flex items-center mb-4">
-                            <div class="text-yellow-400">★★★★★</div>
-                        </div>
-                        <p class="text-gray-300 mb-4">"The level of professionalism and technical expertise is unmatched. Our new website loads 3x faster and looks amazing on all devices."</p>
-                        <p class="font-semibold">David Wilson</p>
-                        <p class="text-sm text-gray-400">CTO, Digital Dynamics</p>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- About Section -->
         <section id="about" class="py-24 bg-gradient-to-b from-gray-800 to-gray-900">
             <div class="container mx-auto px-6">
-                <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 gradient-text" data-aos="fade-up">
                     About GitPage
                 </h2>
-                <div class="max-w-3xl mx-auto space-y-8">
+                <div class="max-w-3xl mx-auto space-y-8" data-aos="fade-up">
                     <p class="text-gray-300 text-lg leading-relaxed">
                         Founded in 2020, GitPage emerged from a vision to simplify website development for businesses of all sizes. Our team of passionate developers and designers came together with a shared mission: to make professional web presence accessible to everyone through innovative solutions and dedicated support.
                     </p>
@@ -169,40 +232,64 @@
             </div>
         </section>
 
+        <!-- FAQ Section -->
         <section id="faq" class="py-24 bg-gray-900">
             <div class="container mx-auto px-6">
-                <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 gradient-text" data-aos="fade-up">
                     Frequently Asked Questions
                 </h2>
                 <div class="max-w-3xl mx-auto space-y-6">
-                    <div class="p-6 rounded-xl bg-gray-800/50 backdrop-blur-sm hover:shadow-xl transition-all duration-300">
-                        <h3 class="text-xl font-semibold mb-2">What makes GitPage different from other web development services?</h3>
-                        <p class="text-gray-300">We combine expert development with dedicated 24/7 support and ongoing optimization. Unlike others, we focus on long-term partnerships and continuous improvement of your website.</p>
+                    <div class="p-6 rounded-xl glass-effect hover:shadow-xl transition-all duration-300" data-aos="fade-up">
+                        <button class="w-full text-left focus:outline-none">
+                            <h3 class="text-xl font-semibold mb-2">What makes GitPage different from other web development services?</h3>
+                        </button>
+                        <div class="mt-2 text-gray-300">
+                            We combine expert development with dedicated 24/7 support and ongoing optimization. Unlike others, we focus on long-term partnerships and continuous improvement of your website.
+                        </div>
                     </div>
-                    <div class="p-6 rounded-xl bg-gray-800/50 backdrop-blur-sm hover:shadow-xl transition-all duration-300">
-                        <h3 class="text-xl font-semibold mb-2">How long does it take to build a custom website?</h3>
-                        <p class="text-gray-300">Most projects are completed within 2-4 weeks, depending on complexity. We maintain clear communication throughout the process and provide regular updates on progress.</p>
+                    <div class="p-6 rounded-xl glass-effect hover:shadow-xl transition-all duration-300" data-aos="fade-up" data-aos-delay="100">
+                        <button class="w-full text-left focus:outline-none">
+                            <h3 class="text-xl font-semibold mb-2">How long does it take to build a custom website?</h3>
+                        </button>
+                        <div class="mt-2 text-gray-300">
+                            Most projects are completed within 2-4 weeks, depending on complexity. We maintain clear communication throughout the process and provide regular updates on progress.
+                        </div>
                     </div>
-                    <div class="p-6 rounded-xl bg-gray-800/50 backdrop-blur-sm hover:shadow-xl transition-all duration-300">
-                        <h3 class="text-xl font-semibold mb-2">What kind of ongoing support do you provide?</h3>
-                        <p class="text-gray-300">Our support package includes 24/7 technical assistance, regular security updates, performance optimization, content updates, and monthly analytics reports.</p>
-                    </div>
-                    <div class="p-6 rounded-xl bg-gray-800/50 backdrop-blur-sm hover:shadow-xl transition-all duration-300">
-                        <h3 class="text-xl font-semibold mb-2">Do you offer mobile-responsive designs?</h3>
-                        <p class="text-gray-300">Yes, all our websites are fully responsive and optimized for all devices, ensuring a seamless user experience across desktop, tablet, and mobile.</p>
-                    </div>
-                    <div class="p-6 rounded-xl bg-gray-800/50 backdrop-blur-sm hover:shadow-xl transition-all duration-300">
-                        <h3 class="text-xl font-semibold mb-2">What is your pricing structure?</h3>
-                        <p class="text-gray-300">We offer customized pricing based on your specific needs and project scope. Contact us for a detailed quote tailored to your requirements.</p>
+                    <div class="p-6 rounded-xl glass-effect hover:shadow-xl transition-all duration-300" data-aos="fade-up" data-aos-delay="200">
+                        <button class="w-full text-left focus:outline-none">
+                            <h3 class="text-xl font-semibold mb-2">What kind of ongoing support do you provide?</h3>
+                        </button>
+                        <div class="mt-2 text-gray-300">
+                            Our support package includes 24/7 technical assistance, regular security updates, performance optimization, content updates, and monthly analytics reports.
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- Newsletter Section -->
+        <section class="py-24 bg-gradient-to-t from-gray-900 to-gray-800">
+            <div class="container mx-auto px-6">
+                <div class="max-w-4xl mx-auto text-center" data-aos="fade-up">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-8 gradient-text">
+                        Stay Updated with GitPage
+                    </h2>
+                    <p class="text-xl text-gray-300 mb-12">Subscribe to our newsletter for the latest updates, tips, and exclusive offers.</p>
+                    <form class="max-w-md mx-auto flex gap-4">
+                        <input type="email" placeholder="Enter your email" class="flex-1 px-6 py-3 rounded-full bg-gray-800 border border-gray-700 focus:outline-none focus:border-purple-500 text-white">
+                        <button type="submit" class="px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full text-white font-semibold hover:scale-105 hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300">
+                            Subscribe
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
         <section id="contact" class="py-24 bg-gradient-to-t from-gray-900 to-gray-800">
             <div class="container mx-auto px-6">
-                <div class="max-w-4xl mx-auto text-center">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-8 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                <div class="max-w-4xl mx-auto text-center" data-aos="fade-up">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-8 gradient-text">
                         Ready to Transform Your Online Presence?
                     </h2>
                     <p class="text-xl text-gray-300 mb-12">Let's discuss how we can help you achieve your digital goals. Contact us today for a free consultation.</p>
@@ -218,8 +305,19 @@
         <div class="container mx-auto px-6">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
                 <div>
-                    <h3 class="text-xl font-bold mb-4">GitPage</h3>
+                    <h3 class="text-xl font-bold mb-4 gradient-text">GitPage</h3>
                     <p class="text-gray-400">Empowering your digital success</p>
+                    <div class="flex space-x-4 mt-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
                 </div>
                 <div>
                     <h4 class="text-lg font-semibold mb-4">Contact</h4>
@@ -238,9 +336,9 @@
                 <div>
                     <h4 class="text-lg font-semibold mb-4">Legal</h4>
                     <ul class="space-y-2">
-                        <li><a href="https://ihmunro.github.io/build-your-website-effortlessly-with-expert-gitpage-support-2025-04-05-3eaeb/privacy.html" class="text-gray-400 hover:text-white transition-colors duration-300">Privacy Policy</a></li>
-                        <li><a href="https://ihmunro.github.io/build-your-website-effortlessly-with-expert-gitpage-support-2025-04-05-3eaeb/terms.html" class="text-gray-400 hover:text-white transition-colors duration-300">Terms of Service</a></li>
-                        <li><a href="https://ihmunro.github.io/build-your-website-effortlessly-with-expert-gitpage-support-2025-04-05-3eaeb/blog.html" class="text-gray-400 hover:text-white transition-colors duration-300">Blog</a></li>
+                        <li><a href="privacy.html" class="text-gray-400 hover:text-white transition-colors duration-300">Privacy Policy</a></li>
+                        <li><a href="terms.html" class="text-gray-400 hover:text-white transition-colors duration-300">Terms of Service</a></li>
+                        <li><a href="blog.html" class="text-gray-400 hover:text-white transition-colors duration-300">Blog</a></li>
                     </ul>
                 </div>
             </div>
@@ -251,34 +349,26 @@
     </footer>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const mobileMenuButton = document.querySelector('header nav .mobile-menu-button');
-            const mobileMenu = document.querySelector('header nav .mobile-menu');
-            
-            if (mobileMenuButton && mobileMenu) {
-                mobileMenuButton.addEventListener('click', () => {
-                    mobileMenu.classList.toggle('hidden');
-                    const icon = mobileMenuButton.querySelector('i');
-                    if (icon) {
-                        icon.classList.toggle('fa-bars');
-                        icon.classList.toggle('fa-times');
-                    }
-                });
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
 
-                const mobileMenuLinks = mobileMenu.querySelectorAll('a');
-                mobileMenuLinks.forEach(link => {
-                    link.addEventListener('click', () => {
-                        mobileMenu.classList.add('hidden');
-                        const icon = mobileMenuButton.querySelector('i');
-                        if (icon) {
-                            icon.classList.remove('fa-times');
-                            icon.classList.add('fa-bars');
-                        }
-                    });
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-button').addEventListener('click', function() {
+            document.querySelector('.mobile-menu').classList.toggle('hidden');
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
                 });
-            }
+            });
         });
     </script>
-</body>
 </body>
 </html>
