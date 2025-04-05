@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- MCP Server Integration -->
+    <script src="https://cdn.jsdelivr.net/npm/@21st-dev/mcp-client@latest/dist/mcp-client.min.js"></script>
     <style>
         @keyframes float {
             0% { transform: translateY(0px); }
@@ -368,6 +370,26 @@
                     behavior: 'smooth'
                 });
             });
+        });
+
+        // Initialize MCP Server
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize MCP client with your API key
+            const mcpClient = new MCPClient({
+                apiKey: '6da656aa634eba4489b92ca156113ca9213c58bb2a795e0fec4589e160339ab5',
+                container: document.body,
+                position: 'bottom-right',
+                theme: 'dark',
+                language: 'en'
+            });
+
+            // Add a button to open the MCP chat
+            const mcpButton = document.createElement('button');
+            mcpButton.className = 'fixed bottom-24 right-8 z-50 bg-gradient-to-r from-purple-600 to-pink-600 p-4 rounded-full shadow-lg hover:scale-110 transition-transform duration-300';
+            mcpButton.innerHTML = '<i class="fas fa-robot text-white text-xl"></i>';
+            mcpButton.setAttribute('aria-label', 'Open AI Assistant');
+            mcpButton.addEventListener('click', () => mcpClient.open());
+            document.body.appendChild(mcpButton);
         });
     </script>
 </body>
