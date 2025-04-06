@@ -32,6 +32,82 @@
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
+        /* Custom MCP Chat Styling */
+        .mcp-chat-container {
+            --mcp-primary-color: #8B5CF6;
+            --mcp-secondary-color: #EC4899;
+            --mcp-background-color: rgba(17, 24, 39, 0.95);
+            --mcp-text-color: #F3F4F6;
+            --mcp-border-color: rgba(255, 255, 255, 0.1);
+            --mcp-shadow-color: rgba(139, 92, 246, 0.25);
+        }
+        .mcp-chat-button {
+            background: linear-gradient(45deg, #8B5CF6, #EC4899);
+            border-radius: 9999px;
+            box-shadow: 0 4px 6px -1px rgba(139, 92, 246, 0.25);
+            transition: all 0.3s ease;
+        }
+        .mcp-chat-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 15px -3px rgba(139, 92, 246, 0.4);
+        }
+        .mcp-chat-header {
+            background: linear-gradient(45deg, #8B5CF6, #EC4899);
+        }
+        .mcp-chat-message-bot {
+            background: rgba(139, 92, 246, 0.1);
+            border-left: 3px solid #8B5CF6;
+        }
+        .mcp-chat-message-user {
+            background: rgba(236, 72, 153, 0.1);
+            border-right: 3px solid #EC4899;
+        }
+        .mcp-chat-input {
+            background: rgba(17, 24, 39, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 9999px;
+        }
+        .mcp-chat-input:focus {
+            border-color: #8B5CF6;
+            box-shadow: 0 0 0 2px rgba(139, 92, 246, 0.25);
+        }
+        .mcp-chat-send-button {
+            background: linear-gradient(45deg, #8B5CF6, #EC4899);
+            border-radius: 9999px;
+        }
+        /* AI Assistant Feature Card */
+        .ai-assistant-card {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        .ai-assistant-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(139, 92, 246, 0.1), rgba(236, 72, 153, 0.1));
+            z-index: -1;
+        }
+        .ai-assistant-card:hover::before {
+            background: linear-gradient(45deg, rgba(139, 92, 246, 0.2), rgba(236, 72, 153, 0.2));
+        }
+        .ai-assistant-pulse {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(139, 92, 246, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(139, 92, 246, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(139, 92, 246, 0);
+            }
+        }
     </style>
 </head>
 <body class="bg-gray-900 text-gray-100 font-inter antialiased">
@@ -39,6 +115,11 @@
     <a href="#contact" class="fixed bottom-8 right-8 z-50 bg-gradient-to-r from-purple-600 to-pink-600 p-4 rounded-full shadow-lg hover:scale-110 transition-transform duration-300">
         <i class="fas fa-envelope text-white text-xl"></i>
     </a>
+
+    <!-- AI Assistant Button -->
+    <button id="ai-assistant-button" class="fixed bottom-24 right-8 z-50 bg-gradient-to-r from-purple-600 to-pink-600 p-4 rounded-full shadow-lg hover:scale-110 transition-transform duration-300 ai-assistant-pulse">
+        <i class="fas fa-robot text-white text-xl"></i>
+    </button>
 
     <header class="fixed w-full z-50 glass-effect">
         <nav class="container mx-auto px-6 py-4">
@@ -148,8 +229,47 @@
             </div>
         </section>
 
+        <!-- AI Assistant Feature -->
+        <section class="py-24 bg-gradient-to-b from-gray-900 to-gray-800">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 gradient-text" data-aos="fade-up">
+                    Meet Your AI Website Assistant
+                </h2>
+                <div class="max-w-4xl mx-auto">
+                    <div class="p-8 rounded-2xl glass-effect ai-assistant-card" data-aos="fade-up">
+                        <div class="flex flex-col md:flex-row items-center gap-8">
+                            <div class="w-32 h-32 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 flex items-center justify-center ai-assistant-pulse">
+                                <i class="fas fa-robot text-white text-5xl"></i>
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="text-2xl font-semibold mb-4 gradient-text">Instant Answers to Your Questions</h3>
+                                <p class="text-gray-300 mb-6">Our AI assistant is available 24/7 to answer your questions about website development, pricing, features, and more. Get instant help without waiting for a human response.</p>
+                                <div class="flex flex-wrap gap-4">
+                                    <div class="px-4 py-2 bg-gray-800/50 rounded-full text-sm text-gray-300">
+                                        <i class="fas fa-check-circle text-purple-400 mr-2"></i>Website Development
+                                    </div>
+                                    <div class="px-4 py-2 bg-gray-800/50 rounded-full text-sm text-gray-300">
+                                        <i class="fas fa-check-circle text-purple-400 mr-2"></i>Pricing Information
+                                    </div>
+                                    <div class="px-4 py-2 bg-gray-800/50 rounded-full text-sm text-gray-300">
+                                        <i class="fas fa-check-circle text-purple-400 mr-2"></i>Technical Support
+                                    </div>
+                                    <div class="px-4 py-2 bg-gray-800/50 rounded-full text-sm text-gray-300">
+                                        <i class="fas fa-check-circle text-purple-400 mr-2"></i>Feature Details
+                                    </div>
+                                </div>
+                                <button id="ai-assistant-feature-button" class="mt-6 px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full text-white font-semibold hover:scale-105 hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300">
+                                    <i class="fas fa-comments mr-2"></i>Chat with AI Assistant
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Benefits Section -->
-        <section id="benefits" class="py-24 bg-gradient-to-b from-gray-900 to-gray-800">
+        <section id="benefits" class="py-24 bg-gradient-to-b from-gray-800 to-gray-900">
             <div class="container mx-auto px-6">
                 <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 gradient-text" data-aos="fade-up">
                     Unlock Your Website's Full Potential
@@ -372,24 +492,66 @@
             });
         });
 
-        // Initialize MCP Server
+        // Initialize MCP Server with enhanced configuration
         document.addEventListener('DOMContentLoaded', function() {
-            // Initialize MCP client with your API key
+            // Initialize MCP client with your API key and enhanced styling
             const mcpClient = new MCPClient({
                 apiKey: '6da656aa634eba4489b92ca156113ca9213c58bb2a795e0fec4589e160339ab5',
                 container: document.body,
                 position: 'bottom-right',
                 theme: 'dark',
-                language: 'en'
+                language: 'en',
+                welcomeMessage: "👋 Hi! I'm your GitPage AI assistant. How can I help you today?",
+                placeholder: "Ask me anything about website development...",
+                title: "GitPage AI Assistant",
+                avatar: "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f916.svg",
+                customStyles: {
+                    container: 'mcp-chat-container',
+                    button: 'mcp-chat-button',
+                    header: 'mcp-chat-header',
+                    messageBot: 'mcp-chat-message-bot',
+                    messageUser: 'mcp-chat-message-user',
+                    input: 'mcp-chat-input',
+                    sendButton: 'mcp-chat-send-button'
+                }
             });
 
-            // Add a button to open the MCP chat
-            const mcpButton = document.createElement('button');
-            mcpButton.className = 'fixed bottom-24 right-8 z-50 bg-gradient-to-r from-purple-600 to-pink-600 p-4 rounded-full shadow-lg hover:scale-110 transition-transform duration-300';
-            mcpButton.innerHTML = '<i class="fas fa-robot text-white text-xl"></i>';
-            mcpButton.setAttribute('aria-label', 'Open AI Assistant');
-            mcpButton.addEventListener('click', () => mcpClient.open());
-            document.body.appendChild(mcpButton);
+            // Add event listeners to both AI assistant buttons
+            document.getElementById('ai-assistant-button').addEventListener('click', () => mcpClient.open());
+            document.getElementById('ai-assistant-feature-button').addEventListener('click', () => mcpClient.open());
+
+            // Add a notification badge to the floating button
+            const aiButton = document.getElementById('ai-assistant-button');
+            const badge = document.createElement('span');
+            badge.className = 'absolute -top-1 -right-1 w-5 h-5 bg-red-500 rounded-full flex items-center justify-center text-white text-xs';
+            badge.textContent = '1';
+            aiButton.appendChild(badge);
+
+            // Remove the badge after 5 seconds
+            setTimeout(() => {
+                badge.style.opacity = '0';
+                badge.style.transition = 'opacity 0.5s ease';
+                setTimeout(() => badge.remove(), 500);
+            }, 5000);
+
+            // Add a typing indicator when the chat is opened
+            mcpClient.on('open', () => {
+                setTimeout(() => {
+                    mcpClient.addMessage({
+                        type: 'bot',
+                        content: 'I can help you with:',
+                        typing: true
+                    });
+                    
+                    setTimeout(() => {
+                        mcpClient.addMessage({
+                            type: 'bot',
+                            content: '• Website development services\n• Pricing information\n• Technical support options\n• Feature details and capabilities',
+                            typing: false
+                        });
+                    }, 1500);
+                }, 1000);
+            });
         });
     </script>
 </body>
